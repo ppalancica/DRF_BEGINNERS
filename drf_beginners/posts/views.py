@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from rest_framework.decorators import api_view
 from rest_framework.views import APIView
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
@@ -56,3 +57,8 @@ def post_detail(request, pk):
     elif request.method == 'DELETE':
         post.delete()
         return JsonResponse(status=204)
+
+@api_view(['GET', 'POST'])
+def post_list(request):
+    if request.method == 'GET':
+        pass
