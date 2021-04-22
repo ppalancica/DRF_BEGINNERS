@@ -7,8 +7,8 @@ from rest_framework import generics
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.status import HTTP_200_OK, HTTP_201_CREATED, HTTP_400_BAD_REQUEST, HTTP_204_NO_CONTENT
-from .models import Post
-from .serializers import PostSerializer, OwnerSerializer
+from .models import Post, Comment
+from .serializers import PostSerializer, OwnerSerializer, CommentSerializer
 from .permissions import IsOwnerPermission
 
 from django.http import HttpResponse, JsonResponse
@@ -125,3 +125,7 @@ class PostDestroyView(generics.DestroyAPIView):
 class OwnerDetailView(generics.RetrieveAPIView):
     queryset = User.objects.all()
     serializer_class = OwnerSerializer
+
+class CommentDetailView(generics.RetrieveAPIView):
+    queryset = Comment.objects.all()
+    serializer_class = CommentSerializer
