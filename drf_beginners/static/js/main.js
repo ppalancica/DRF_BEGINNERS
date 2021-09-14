@@ -30,10 +30,32 @@ function renderPost(post) {
   const root = document.getElementById('root');
   const div = createNode('div');
   const title = createNode('h2');
-  title.innerText = post.title;
+  const content = createNode('p');
+  const publishDate = createNode('span');
+  const lastUpdated = createNode('span');
+  const author = createNode('small');
+
+  author.innerText = post.author;
+  // title.innerText = post.title;
+  title.innerText = `${post.title} written by ${post.author}`;
+  content.innerText = post.content;
+  publishDate.innerText = `Published: ${new Date(post.publish_date).toUTCString()}`;
+  lastUpdated.innerText = `Last updated: ${new Date(post.publish_date).toUTCString()}`;
+
   append(div, title);
+  append(div, content);
+  append(div, publishDate);
+  append(div, lastUpdated);
   append(root, div);
 }
+// function renderPost(post) {
+//   const root = document.getElementById('root');
+//   const div = createNode('div');
+//   const title = createNode('h2');
+//   title.innerText = post.title;
+//   append(div, title);
+//   append(root, div);
+// }
 // function renderPost(post) {
 //   const div = createNode('div');
 //   const title = createNode('h2');
