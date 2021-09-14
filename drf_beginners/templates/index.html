@@ -7,6 +7,14 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}" />
   </head>
   <body>
+    <div id="postForm" class="form">
+      <form method="POST">
+        <input type"text" id="title" placeholder="title" />
+        <input type"text" id="content" placeholder="content" />
+        <input type"text" id="author" placeholder="author" />
+        <button id="submitButton" type="submit">Create</button>
+      </form>
+    </div>
     <div id='root'></div>
     <script src="{% static 'js/main.js' %}"></script>
   </body>

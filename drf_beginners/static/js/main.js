@@ -1,5 +1,21 @@
 // console.log("test")
 
+document.querySelector('#postForm').addEventListener('submit', e => {
+  e.preventDefault();
+  // console.log(e);
+  const title = document.getElementById('title').value;
+  const content = document.getElementById('content').value;
+  const author = document.getElementById('author').value;
+  console.log(title);
+  console.log(content);
+  console.log(author);
+})
+
+// const submitButton = document.getElementById('submitButton');
+// submitButton.addEventListener('click', e => {
+//   console.log(e);
+// })
+
 function getPostList() {
   fetch('/api/posts/')
     .then(res => res.json())
