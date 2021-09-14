@@ -9,12 +9,33 @@ document.querySelector('#postForm').addEventListener('submit', e => {
   console.log(title);
   console.log(content);
   console.log(author);
+  createPost(title, content, author)
 })
 
 // const submitButton = document.getElementById('submitButton');
 // submitButton.addEventListener('click', e => {
 //   console.log(e);
 // })
+
+function createPost(title, content, author) {
+  const data = {
+    method: "POST",
+    headers: {
+      'content-type': 'application/json'
+    },
+    body: JSON.stringify({
+      title, content, author
+    })
+  }
+  fetch('/api/posts/create/', data)
+    .then(res => res.json())
+    .then(data => {
+      console.log(data);
+    })
+    .catch(err => {
+      console.error(err);
+    })
+}
 
 function getPostList() {
   fetch('/api/posts/')
