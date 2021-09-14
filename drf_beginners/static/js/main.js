@@ -29,6 +29,7 @@ function append(parrent, el) {
 function renderPost(post) {
   const root = document.getElementById('root');
   const div = createNode('div');
+  div.className = 'post-item';
   const title = createNode('h2');
   const content = createNode('p');
   const publishDate = createNode('span');
